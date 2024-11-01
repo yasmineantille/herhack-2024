@@ -1,0 +1,17 @@
+.game {
+    display: grid;
+    grid-template-rows: 1fr auto auto;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.gameBar {
+    grid-row: 3;
+    height: 100px; /* Adjust as needed */
+    background-color: #578c9a;
+}
+
+.skyline {
+    grid-row: 2;
+}

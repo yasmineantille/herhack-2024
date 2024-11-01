@@ -8,14 +8,15 @@ interface GameProps {
 }
 
 const City: React.FC<GameProps> = () => {
-    const navigate = () => {
-        window.location.href = '/game';
+    const navigateTo = (route: string) => {
+        window.location.href = route;
     };
 
     return (
         <div className={'game'}>
             <Skyline className={'skyline'}/>
-            <GameButton onClick={() => navigate()} className={'firstGame'}></GameButton>
+            <GameButton onClick={() => navigateTo('/gameOne')} className={'firstGame'}></GameButton>
+            <GameButton onClick={() => navigateTo('/workDesk')} className={'workdesk'}></GameButton>
         </div>
     );
 }

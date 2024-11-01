@@ -1,14 +1,22 @@
 import React from 'react';
 import './App.css';
-import Game from "./components/Game/Game";
+import City from "./components/City/City";
+import {BrowserRouter, BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import GameBar from "./components/GameBar/GameBar";
+import Layout from "./components/Layout/Layout";
 
 function App() {
 
 
   return (
-    <div className="mainContainer">
-      <Game></Game>
-    </div>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Layout />}>
+                    <Route index element={<City />} />
+                    <Route path="gameOne" element={<City />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
   );
 }
 

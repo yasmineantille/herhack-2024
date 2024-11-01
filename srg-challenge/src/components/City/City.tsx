@@ -14,7 +14,7 @@ const City: React.FC<GameProps> = () => {
 
     return (
         <div className={'game'}>
-            <Skyline className={'skyline'}/>
+            <div className={'skyline'}></div>
             <GameButton onClick={() => navigateTo('/gameOne')} className={'firstGame'}></GameButton>
             <GameButton onClick={() => navigateTo('/workDesk')} className={'workdesk'}></GameButton>
         </div>

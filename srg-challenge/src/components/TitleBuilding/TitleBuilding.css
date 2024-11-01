@@ -1,0 +1,69 @@
+.titleBuilding {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titleGrid {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 10px; /* Adjust the gap between pairs as needed */
+}
+
+.clickbaitPair {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px; /* Adjust the gap between clickbait and non-clickbait items as needed */
+}
+
+.bait {
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.correct {
+    border: 2px solid green;
+}
+
+.incorrect {
+    border: 2px solid red;
+}
+
+.avatarContainer {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.avatar {
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+}
+
+.speech-bubble {
+    position: relative;
+    background: #b2e7ec;
+    border-radius: .4em;
+    padding: 10px;
+    width: fit-content;
+    max-width: 200px;
+    height: 50%;
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -10px; /* Adjust the position of the tail */
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-right-color: #b2e7ec;
+    border-left: 0;
+    border-top: 0;
+    margin-top: -10px; /* Center the tail vertically */
+}

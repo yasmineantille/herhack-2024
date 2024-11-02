@@ -65,7 +65,7 @@ const FlippableCard: React.FC<FlippableCardProps> = ({ icon, title, flipsideText
                     <Box display="flex" justifyContent="center">
                         <IconBox icon={icon} />
                     </Box>
-                    <Typography variant="h6" color="secondary.main" fontWeight="bold" sx={{ mt: 2 }}>
+                    <Typography variant="h6" color="primary.main" fontWeight="bold" sx={{ mt: 2 }}>
                         {title}
                     </Typography>
                 </Box>

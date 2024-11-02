@@ -1,56 +1,54 @@
 import React from 'react';
-import {Container, Box, Typography, Grid2 as Grid} from '@mui/material';
-import { StyledFlippableCard, SectionTitle, TweetCard, TweetAvatar } from '../StyledComponents/StyledComponents';
+import { Container, Box, Typography, Grid2 as Grid } from '@mui/material';
 import FlippableCard from '../FlippableCard/FlippableCard';
 import './QuoteBuilding.css';
 import { ReactComponent as Avatar } from '../../assets/avatar.svg';
 
-
 const QuoteBuilding = () => {
     return (
-        <Container maxWidth="md" sx={{mt: 5, mb: 5}}>
+        <Container maxWidth="md" sx={{ mt: 5, mb: 5 }}>
             <Typography variant="h3" align="center" color="primary" gutterBottom>
-                Wie erkennt man eine zuverlässige Quelle?
+                How to Recognize a Reliable Source?
             </Typography>
 
-            <Box sx={{my: 4}}>
+            <Box sx={{ my: 4 }}>
                 <Grid container spacing={3}>
-                    <Grid size={{xs: 12, md: 6}}>
+                    <Grid size={{ xs: 12, md: 6 }}>
                         <FlippableCard
-                            title={'Zeitungen & Nachrichtenwebseiten'}
+                            title={'Newspapers & News Websites'}
                             icon={'newspaper'}
-                            flipsideText={'Oft zuverlässiger, da sie Informationen prüfen.'}
+                            flipsideText={'Often more reliable, as they check information.'}
                         />
                     </Grid>
-                    <Grid size={{xs: 12, md: 6}}>
+                    <Grid size={{ xs: 12, md: 6 }}>
                         <FlippableCard
-                            title={'Soziale Medien'}
+                            title={'Social Media'}
                             icon={'connect'}
-                            flipsideText={'Informationen sind selten überprüft, besser woanders bestätigen.'}
+                            flipsideText={'Information is rarely verified; better to confirm elsewhere.'}
                         />
                     </Grid>
-                    <Grid size={{xs: 12, md: 6}}>
+                    <Grid size={{ xs: 12, md: 6 }}>
                         <FlippableCard
                             title={'Blogs'}
                             icon={'locallibrary'}
-                            flipsideText={'Häufig Meinungen, nicht immer überprüft.'}
+                            flipsideText={'Often opinions, not always verified.'}
                         />
                     </Grid>
-                    <Grid size={{xs: 12, md: 6}}>
+                    <Grid size={{ xs: 12, md: 6 }}>
                         <FlippableCard
-                            title={'Zusätzliche Quellen'}
+                            title={'Additional Sources'}
                             icon={'book'}
-                            flipsideText={'Wenn mehrere seriöse Seiten dieselbe Info teilen, ist sie oft glaubwürdig.'}
+                            flipsideText={'If several reputable sites share the same info, it’s often credible.'}
                         />
                     </Grid>
                 </Grid>
             </Box>
             <div className="avatarContainer">
-                <Avatar className="avatar"/>
+                <Avatar className="avatar" />
                 <div className="speech-bubble">
-                    <h4>Sprache beachten</h4>
+                    <h4>Pay Attention to Language</h4>
                     <p>
-                        Sensationelle Wörter können auf weniger vertrauenswürdige Inhalte hinweisen.
+                        Sensational words can indicate less trustworthy content.
                     </p>
                 </div>
             </div>

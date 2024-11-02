@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/herhack-2024/static/css/main.232be863.css",
-    "main.js": "/herhack-2024/static/js/main.070241ba.js",
+    "main.css": "/herhack-2024/static/css/main.b813e11a.css",
+    "main.js": "/herhack-2024/static/js/main.db7cd104.js",
     "static/js/453.8ec78286.chunk.js": "/herhack-2024/static/js/453.8ec78286.chunk.js",
     "static/media/skyline.png": "/herhack-2024/static/media/skyline.d1ee8494b86f644e60af.png",
     "static/media/avatar.svg": "/herhack-2024/static/media/avatar.56e5c11b9143385dd84b4fbc3a91599c.svg",
     "index.html": "/herhack-2024/index.html",
-    "main.232be863.css.map": "/herhack-2024/static/css/main.232be863.css.map",
-    "main.070241ba.js.map": "/herhack-2024/static/js/main.070241ba.js.map",
+    "main.b813e11a.css.map": "/herhack-2024/static/css/main.b813e11a.css.map",
+    "main.db7cd104.js.map": "/herhack-2024/static/js/main.db7cd104.js.map",
     "453.8ec78286.chunk.js.map": "/herhack-2024/static/js/453.8ec78286.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.232be863.css",
-    "static/js/main.070241ba.js"
+    "static/css/main.b813e11a.css",
+    "static/js/main.db7cd104.js"
   ]
 }

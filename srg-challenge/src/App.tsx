@@ -13,7 +13,7 @@ function App() {
   return (
       <ThemeProvider theme={theme}>
           <CssBaseline />
-        <Router>
+        <Router basename={ROOT}>
             <Routes>
                 <Route path="/" element={<Layout />}>
                     <Route index element={<City />} />
@@ -28,3 +28,5 @@ function App() {
 }
 
 export default App;
+
+export const ROOT = "/herhack-2024";

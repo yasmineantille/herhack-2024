@@ -1,10 +1,9 @@
 import GameButton from "../GameButton/GameButton";
 import React from "react";
-import { ReactComponent as Skyline } from './skyline2.svg';
 import './City.css';
 import DrawIcon from '@mui/icons-material/Draw';
-import MicIcon from '@mui/icons-material/Mic';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
+import {ROOT} from "../../App";
 
 interface GameProps {
 
@@ -12,7 +11,7 @@ interface GameProps {
 
 const City: React.FC<GameProps> = () => {
     const navigateTo = (route: string) => {
-        window.location.href = route;
+        window.location.href = ROOT + route;
     };
 
     return (

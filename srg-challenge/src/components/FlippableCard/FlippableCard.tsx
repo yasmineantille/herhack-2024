@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Box, Typography } from '@mui/material';
-import {Newspaper, LocalLibrary} from '@mui/icons-material';
-import { StyledFlippableCard } from '../StyledComponents/StyledComponents';
-import './FlippableCard.css';
+import { Newspaper, LocalLibrary } from '@mui/icons-material';
 import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
 import BookIcon from '@mui/icons-material/Book';
+import {StyledFlippableCard} from "../StyledComponents/StyledComponents";
+import './FlippableCard.css';
 
 interface FlippableCardProps {
     icon: string;
@@ -16,13 +16,13 @@ const IconBox: React.FC<{ icon: string }> = ({ icon }) => {
     const renderIcon = () => {
         switch (icon) {
             case 'newspaper':
-                return <Newspaper color="action" fontSize="large" />;
+                return <Newspaper fontSize="large" />;
             case 'connect':
-                return <ConnectWithoutContactIcon color='action' fontSize='large' />;
+                return <ConnectWithoutContactIcon fontSize="large" />;
             case 'locallibrary':
-                return <LocalLibrary color="action" fontSize="large" />;
+                return <LocalLibrary fontSize="large" />;
             case 'book':
-                return <BookIcon color="action" fontSize="large"/>;
+                return <BookIcon fontSize="large" />;
             default:
                 return null;
         }
@@ -34,11 +34,16 @@ const IconBox: React.FC<{ icon: string }> = ({ icon }) => {
                 width: 64,
                 height: 64,
                 color: 'white',
-                backgroundColor: 'secondary.light',
+                backgroundColor: 'primary.main',
                 borderRadius: '50%',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
+                boxShadow: 3,
+                transition: 'transform 0.3s',
+                '&:hover': {
+                    transform: 'scale(1.1)',
+                },
             }}
         >
             {renderIcon()}
@@ -55,16 +60,16 @@ const FlippableCard: React.FC<FlippableCardProps> = ({ icon, title, flipsideText
 
     return (
         <StyledFlippableCard onClick={handleCardClick} className={`flippable-card ${isFlipped ? 'flipped' : ''}`}>
-            <Box className="card-content">
+            <Box className="card-content" sx={{ textAlign: 'center', p: 1 }}>
                 <Box className="card-front">
-                    <Box display="flex" justifyContent="center" >
+                    <Box display="flex" justifyContent="center">
                         <IconBox icon={icon} />
                     </Box>
-                    <Typography variant="h5" color="primary">
+                    <Typography variant="h6" color="secondary.main" fontWeight="bold" sx={{ mt: 2 }}>
                         {title}
                     </Typography>
                 </Box>
-                <Box className="card-back">
+                <Box className="card-back" >
                     <Box display="flex" justifyContent="center">
                         <IconBox icon={icon} />
                     </Box>

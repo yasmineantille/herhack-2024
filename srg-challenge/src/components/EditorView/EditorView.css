@@ -1,0 +1,97 @@
+.editor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100% - 100px);
+}
+
+.editorGrid {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 10px;
+}
+
+.editorContainer {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+.reportPart {
+    display: flex;
+    justify-content: center;
+}
+
+.bait {
+    border: 1px solid black;
+    margin: 5px 5px 0px 5px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.correct {
+    border: 2px solid #5CD65C;
+}
+
+.correct-background {
+    background-color: rgba(92, 214, 92, 0.22) !important;
+}
+
+.clickbait {
+    border: 2px solid #FFB84D;
+}
+
+.clickbait-background {
+    background-color: rgba(255, 184, 77, 0.22) !important;
+}
+
+.incorrect {
+    border: 2px solid #FF6B6B;
+}
+
+.incorrect-background {
+    background-color: rgba(255, 107, 107, 0.22) !important;
+}
+
+.avatarContainer {
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    width: fit-content;
+    flex: 0;
+    align-items: flex-end;
+    left: 0;
+    bottom: 100px;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    margin: 20px;
+}
+
+.speech-bubble {
+    position: relative;
+    background: #b2e7ec;
+    border-radius: .4em;
+    padding: 10px;
+    width: fit-content;
+    max-width: 200px;
+    height: 25%;
+    margin-bottom: 20px;
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -10px; /* Adjust the position of the tail */
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-right-color: #b2e7ec;
+    border-left: 0;
+    border-top: 0;
+    margin-top: -10px; /* Center the tail vertically */
+}

@@ -3,6 +3,7 @@ import {Block, ContentType, Desk} from "../Models/Models";
 import {Box, Button, Card, CardContent, CardHeader, Typography} from "@mui/material";
 import {TweetAvatar, TweetCard } from "../StyledComponents/StyledComponents";
 import { Twitter } from "@mui/icons-material";
+import {useNavigate} from "react-router-dom";
 
 export interface WorkDeskProps {
     className?: string;
@@ -176,8 +177,10 @@ const WorkDesk: React.FC<WorkDeskProps> = ({className}) => {
         setSelectedType(type);
     }
 
+    const navigate = useNavigate();
+
     const submitArticle = () => {
-        console.log("submitting article");
+        navigate('/editor');
     }
 
     return (

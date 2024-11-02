@@ -7,25 +7,26 @@ import WorkDesk from "./components/WorkDesk/WorkDesk";
 import TitleBuilding from "./components/TitleBuilding/TitleBuilding";
 import QuoteBuilding from "./components/QuoteBuilding/QuoteBuilding";
 import {CssBaseline, ThemeProvider} from "@mui/material";
-import theme from "./theme";
 import getTheme from "./theme";
+import EditorView from "./components/EditorView/EditorView";
 
 function App() {
-  return (
-      <ThemeProvider theme={getTheme('light')}>
-          <CssBaseline />
-        <Router basename={ROOT}>
-            <Routes>
-                <Route path="/" element={<Layout />}>
-                    <Route index element={<City />} />
-                    <Route path="title" element={<TitleBuilding />} />
-                    <Route path="workdesk" element={<WorkDesk />} />
-                    <Route path="quote" element={<QuoteBuilding />} />
-                </Route>
-            </Routes>
-        </Router>
-      </ThemeProvider>
-  );
+    return (
+        <ThemeProvider theme={getTheme('light')}>
+            <CssBaseline/>
+            <Router basename={ROOT}>
+                <Routes>
+                    <Route path="/" element={<Layout/>}>
+                        <Route index element={<City/>}/>
+                        <Route path="title" element={<TitleBuilding/>}/>
+                        <Route path="workdesk" element={<WorkDesk/>}/>
+                        <Route path="quote" element={<QuoteBuilding/>}/>
+                        <Route path="editor" element={<EditorView/>}/>
+                    </Route>
+                </Routes>
+            </Router>
+        </ThemeProvider>
+    );
 }
 
 export default App;

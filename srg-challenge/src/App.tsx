@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import City from "./components/City/City";
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
@@ -11,6 +11,12 @@ import getTheme from "./theme";
 import EditorView from "./components/EditorView/EditorView";
 
 function App() {
+
+    useEffect(() => {
+        document.title = "Skyline Scoop";
+    }, []);
+
+
     return (
         <ThemeProvider theme={getTheme('light')}>
             <CssBaseline/>

@@ -3,22 +3,26 @@ import React from "react";
 import './City.css';
 import DrawIcon from '@mui/icons-material/Draw';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
-import {ROOT} from "../../App";
+import {useNavigate} from "react-router-dom";
 
 interface GameProps {
 
 }
 
 const City: React.FC<GameProps> = () => {
+    const navigate = useNavigate();
+
     const navigateTo = (route: string) => {
-        window.location.href = ROOT + route;
+        navigate(route);
     };
 
     return (
         <div className={'game'}>
             <div className={'skyline'}></div>
-            <GameButton onClick={() => navigateTo('/title')} icon={DrawIcon} className={'titleBuildingBtn'}></GameButton>
-            <GameButton onClick={() => navigateTo('/quote')} icon={FormatQuoteIcon} className={'quoteBuildingBtn'}></GameButton>
+            <GameButton onClick={() => navigateTo('/title')} icon={DrawIcon}
+                        className={'titleBuildingBtn'}></GameButton>
+            <GameButton onClick={() => navigateTo('/quote')} icon={FormatQuoteIcon}
+                        className={'quoteBuildingBtn'}></GameButton>
         </div>
     );
 }

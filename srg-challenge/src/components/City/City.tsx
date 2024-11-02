@@ -17,6 +17,7 @@ const City: React.FC<GameProps> = () => {
             <div className={'skyline'}></div>
             <GameButton onClick={() => navigateTo('/title')} className={'titleBuildingBtn'}></GameButton>
             <GameButton onClick={() => navigateTo('/workDesk')} className={'workdesk'}></GameButton>
+            <GameButton onClick={() => navigateTo('/quote')} className={'quote'}></GameButton>
         </div>
     );
 }

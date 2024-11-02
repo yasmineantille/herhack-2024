@@ -57,14 +57,9 @@ const mockBlocks: Block[] = [
         score: 1
     },
     {
-        content: 'The USA - a country that interests everyone\n' +
-            'Whether through films, music, customs such as Halloween or the presidential elections - the USA is constantly present. Especially now that the presidential election is just around the corner, interest is high worldwide. Kamala Harris is running against Donald Trump, and the whole world is watching. Even celebrities like singer Taylor Swift are talking about it and encouraging their fans to vote.\n' +
-            'But why is this so important for us in Switzerland? A lot of what happens in the USA also has an impact on Europe and Switzerland. You can see this not only in politics, but also in traditions and festivals that are becoming increasingly popular in Switzerland. Halloween, for example.\n' +
-            'Halloween - an American festival with European roots\n' +
-            'The nights are getting longer, the wind is getting stronger and pumpkins are popping up everywhere. It\'s Halloween - the spookiest festival of the year. Halloween is particularly popular and widely celebrated in the USA.\n' +
-            'But did you know that this custom originally comes from Europe? Irish emigrants brought the festival to America a long time ago, where it developed into a gigantic spectacle. Today, children in the USA celebrate Halloween by going from house to house to collect sweets, dressed in the scariest costumes.\n' +
+        content: 'The USA captivates global interest with its films, music, and traditions like Halloween, especially with the presidential election approaching. With Kamala Harris running against Donald Trump, the world is watching closely, including celebrities like Taylor Swift, who are urging fans to vote. This is particularly significant for Switzerland, as events in the USA often influence Europe.\n' +
             '\n' +
-            'Translated with DeepL.com (free version)',
+            'Halloween, for instance, is an American festival rooted in European traditions. As the nights grow longer and pumpkins appear, Halloween becomes a celebrated event. Although it is most popular in the USA, this custom was originally brought over by Irish emigrants, evolving into a grand spectacle. Today, American children celebrate by trick-or-treating in costumes, collecting sweets from neighbors.\n',
         type: ContentType.Introduction,
         score: 5
     },
@@ -207,12 +202,21 @@ const WorkDesk: React.FC<WorkDeskProps> = ({className}) => {
                 <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px'}}>
                     <div style={{ display: 'flex', gap: '20px', flexDirection: 'column', cursor: 'pointer'}}>
                         {blocks.map(block => (
-                            <Card onClick={() => changeSelectedBlockType(block.type)}>
-                                <CardContent><Typography>{block.text}</Typography></CardContent>
-                            </Card>
+                            block.type !== ContentType.Quote?(
+                                <Card onClick={() => changeSelectedBlockType(block.type)}>
+                                    <CardContent><Typography>{block.text}</Typography></CardContent>
+                                </Card>
+                            ):(
+                                <TweetCard onClick={() => changeSelectedBlockType(block.type)}>
+                                    <Typography variant="body2">
+                                        «{block.text}»
+                                    </Typography>
+                                </TweetCard>
+                            )
                         ))}
                     </div>
                     <div style={{ display: 'flex', gap: '20px', flexDirection: 'column'}}>
+                        <span>Choose the neutral, unbiased and trustworthy option</span>
                         {workDesk.foundBlocks.filter((block) => block.type === selectedType).map(
                             (matchedBlock) => (
                                 matchedBlock.type !== ContentType.Quote ? (
@@ -220,7 +224,7 @@ const WorkDesk: React.FC<WorkDeskProps> = ({className}) => {
                                         <CardContent><Typography>{matchedBlock.content}</Typography></CardContent>
                                     </Card>
                                 ) : (
-                                    <TweetCard>
+                                    <TweetCard onClick={() => fillPlaceholder(matchedBlock.type, matchedBlock.content)}>
                                         <Box display="flex" alignItems="center" mb={1}>
                                             <TweetAvatar alt="Genevieve" src="/path/to/avatar.png" />
                                             <Box ml={2}>

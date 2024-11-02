@@ -46,7 +46,8 @@ const GameBar: React.FC<BarProps> = ({ className }) => {
                                 Back to the city
                             </Button>
                         )}
-                        <Button
+                        {location.pathname !== '/workDesk' && (
+                            <Button
                             component={RouterLink}
                             to={'/workDesk'}
                             variant="contained"
@@ -60,7 +61,7 @@ const GameBar: React.FC<BarProps> = ({ className }) => {
                         >
                             Write your article
                         </Button>
-
+                        )}
                         <Button
                             onClick={() => {
                                 showHelp = true;

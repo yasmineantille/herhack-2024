@@ -5,6 +5,7 @@ export const StyledCard = styled(Card)(({ theme }) => ({
     padding: theme.spacing(2),
     marginBottom: theme.spacing(2),
     borderRadius: theme.shape.borderRadius,
+    cursor: 'pointer'
 }));
 
 export const StyledFlippableCard = styled(Card)(({ theme }) => ({

@@ -1,19 +1,18 @@
 import React from 'react';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 import { AppBar, Toolbar, Button, Container, Stack } from '@mui/material';
 import ApartmentIcon from '@mui/icons-material/Apartment';
-import GamePlay from '../GamePlay/GamePlay';
 
 // Define the shared color
 const buttonColor = 'darkred';
 
 interface BarProps {
     className?: string;
+    toggleShowHelp: () => void;
 }
 
-const GameBar: React.FC<BarProps> = ({ className }) => {
+const GameBar: React.FC<BarProps> = ({ className, toggleShowHelp }) => {
     const location = useLocation();
-    let showHelp = false;
 
     return (
         <AppBar
@@ -66,7 +65,7 @@ const GameBar: React.FC<BarProps> = ({ className }) => {
 
                         <Button
                             onClick={() => {
-                                showHelp = true;
+                                toggleShowHelp();
                             }}
                             variant="contained"
                             sx={{
@@ -83,7 +82,6 @@ const GameBar: React.FC<BarProps> = ({ className }) => {
                     </Stack>
                 </Toolbar>
             </Container>
-            <GamePlay className={''}></GamePlay>
         </AppBar>
     );
 };

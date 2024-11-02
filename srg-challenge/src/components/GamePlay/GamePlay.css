@@ -1,0 +1,11 @@
+.gameplay.hide {
+    display: none;
+}
+
+.gameplay.show {
+    display: block;
+    position: absolute;
+    top: 25%;
+    left: 40%;
+    width: 300px;
+}

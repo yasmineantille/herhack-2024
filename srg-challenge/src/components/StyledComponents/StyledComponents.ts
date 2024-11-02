@@ -15,7 +15,6 @@ export const StyledFlippableCard = styled(Card)(({ theme }) => ({
     flexDirection: 'column',
     justifyContent: 'space-between',
     height: '100%',
-    backgroundColor: theme.palette.primary.light,
 }));
 
 export const SectionTitle = styled(Typography)(({ theme }) => ({

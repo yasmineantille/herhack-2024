@@ -17,6 +17,10 @@ const Layout = () => {
             <Outlet />
             <GameBar className="gameBar" toggleShowHelp={toggleShowHelp}></GameBar>
             <GamePlay showHelp={showHelp} toggleShowHelp={toggleShowHelp}/>
+            {showHelp && (
+                <div className="gameplay-overlay">
+                </div>
+            )}
         </div>
     )
 };

@@ -7,7 +7,7 @@ import { ReactComponent as Avatar } from '../../assets/avatar.svg';
 const QuoteBuilding = () => {
     return (
         <Container maxWidth="md" sx={{ mt: 5, mb: 5 }}>
-            <Typography variant="h3" align="center" color="primary" gutterBottom>
+            <Typography variant="h3" align="center" gutterBottom>
                 How to Recognize a Reliable Source?
             </Typography>
 

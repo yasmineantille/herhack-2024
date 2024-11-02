@@ -185,7 +185,9 @@ const WorkDesk: React.FC<WorkDeskProps> = ({className}) => {
 
     return (
         <div className={className} style={{padding: '20px', overflowY: 'auto', height: 'calc(100% - 100px)'}}>
-            <h1>Write your article</h1>
+            <Typography variant="h3" align="center" gutterBottom>
+                Write your article
+            </Typography>
             <h5>Select an option for each part of your media piece to write an informed, unbiased trustworthy article,
                 just like a real journalist.</h5>
             <div style={{
@@ -245,20 +247,6 @@ const WorkDesk: React.FC<WorkDeskProps> = ({className}) => {
             </div>
             <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', padding: '20px', gap: '20px'}}>
                 <Button onClick={() => submitArticle()}>Submit to editor</Button>
-                {/*<button*/}
-                {/*    onClick={() => submitArticle()}*/}
-                {/*    style={{*/}
-                {/*        padding: '5px 10px',*/}
-                {/*        borderRadius: '4px',*/}
-                {/*        height: 'auto',*/}
-                {/*        border: 'none',*/}
-                {/*        whiteSpace: 'normal',*/}
-                {/*        wordWrap: 'break-word',*/}
-                {/*        width: 'calc(100% / 3)',*/}
-                {/*    }}*/}
-                {/*>*/}
-                {/*    Submit to editor*/}
-                {/*</button>*/}
             </div>
         </div>
     );

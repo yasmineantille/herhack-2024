@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyledCard, SectionTitle, TweetCard, TweetAvatar } from '../StyledComponents/StyledComponents';
 import './TitleBuilding.css';
 import { ReactComponent as Avatar } from '../../assets/avatar.svg';
+import { Typography } from '@mui/material';
 
 export interface TitleBuildingProps {}
 
@@ -78,7 +79,9 @@ const TitleBuilding: React.FC<TitleBuildingProps> = () => {
 
     return (
         <div className="titleBuilding">
-            <h1>Which is clickbait?</h1>
+            <Typography variant="h3" align="center" gutterBottom>
+                Which title is clickbait?
+            </Typography>
             <div className="titleContainer">
                 <div className="avatarContainer">
                     <Avatar className="avatar"/>

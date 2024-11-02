@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import {StyledCard} from "../StyledComponents/StyledComponents";
 import {ReactComponent as Avatar} from '../../assets/avatar.svg';
 import "./EditorView.css";
+import { Typography } from "@mui/material";
+import StarIcon from '@mui/icons-material/Star';
 
 export interface EditorProps {
 }
@@ -104,13 +106,15 @@ const EditorView: React.FC<EditorProps> = () => {
         const fakeNews = reportParts
             .filter((part) => part.rating === Rating.FAKE_NEWS)
             .reduce((sum) => (sum + 1), 0);
-        return clickbaits + ' of them is clickbait' + (fakeNews > 0 ? ' and ' + fakeNews + ' is incorrect.' : '');
+        return 'You chose well for the most part! ' + clickbaits + ' of them is clickbait' + (fakeNews > 0 ? ' and ' + fakeNews + ' of them is incorrect news.' : '');
     }
 
     return (
         <div className="editor" style={{padding: '20px', overflowY: 'auto', height: 'calc(100% - 100px)'}}>
-            <h1>Your article has been checked by your trusted editor:</h1>
-            <h3>Here is your score: {getScore()}</h3>
+            <Typography variant="h3" align="center" gutterBottom>
+                Your article has been checked by your trusted editor
+            </Typography>
+            <h3 style={{display: 'flex', alignItems: 'center'}}><StarIcon />{getScore()} <StarIcon /></h3>
             <div className="editorContainer">
                 <div className="avatarContainer">
                     <Avatar className="avatar"/>

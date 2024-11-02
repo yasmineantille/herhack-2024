@@ -2,6 +2,8 @@ import React from 'react';
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 import { AppBar, Toolbar, Button, Container, Stack } from '@mui/material';
 import ApartmentIcon from '@mui/icons-material/Apartment';
+import EditIcon from '@mui/icons-material/Edit';
+import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 
 // Define the shared color
 const buttonColor = 'darkred';
@@ -43,6 +45,7 @@ const GameBar: React.FC<BarProps> = ({ className, toggleShowHelp }) => {
                             component={RouterLink}
                             to={'/workDesk'}
                             variant="contained"
+                            startIcon={<EditIcon />}
                         >
                             Write your article
                         </Button>
@@ -52,6 +55,7 @@ const GameBar: React.FC<BarProps> = ({ className, toggleShowHelp }) => {
                                 toggleShowHelp();
                             }}
                             variant="contained"
+                            startIcon={<QuestionMarkIcon />}
                         >
                             Gameplay help
                         </Button>

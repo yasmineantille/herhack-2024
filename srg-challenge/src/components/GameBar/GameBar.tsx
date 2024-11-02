@@ -28,7 +28,6 @@ const GameBar: React.FC<BarProps> = ({ className, toggleShowHelp }) => {
             <Container maxWidth="md">
                 <Toolbar sx={{ display: 'flex', justifyContent: 'center' }}>
                     <Stack direction="row" spacing={2}>
-                        {/* Conditionally render the Home Button */}
                         {location.pathname !== '/' && (
                             <Button
                                 component={RouterLink}
@@ -46,9 +45,8 @@ const GameBar: React.FC<BarProps> = ({ className, toggleShowHelp }) => {
                                 Back to the city
                             </Button>
                         )}
-
-                        {/* Existing Button */}
-                        <Button
+                        {location.pathname !== '/workDesk' && (
+                            <Button
                             component={RouterLink}
                             to={'/workDesk'}
                             variant="contained"
@@ -62,7 +60,7 @@ const GameBar: React.FC<BarProps> = ({ className, toggleShowHelp }) => {
                         >
                             Write your article
                         </Button>
-
+                        )}
                         <Button
                             onClick={() => {
                                 toggleShowHelp();

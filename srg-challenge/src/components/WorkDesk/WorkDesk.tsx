@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import {Block, ContentType, Desk} from "../Models/Models";
-import {Card, CardContent, CardHeader, Typography} from "@mui/material";
+import {Box, Card, CardContent, CardHeader, Typography} from "@mui/material";
+import {TweetAvatar, TweetCard } from "../StyledComponents/StyledComponents";
+import { Twitter } from "@mui/icons-material";
 
 export interface WorkDeskProps {
     className?: string;
@@ -71,16 +73,21 @@ const mockBlocks: Block[] = [
         type: ContentType.Introduction,
         score: 1
     },
-    // {
-    //     content: 'Quote1',
-    //     type: ContentType.Quote,
-    //     score: 1
-    // },
-    // {
-    //     content: 'Quote2',
-    //     type: ContentType.Quote,
-    //     score: 1
-    // },
+    {
+        content: 'Halloween is becoming increasingly popular in Switzerland. But in the USA it\'s huge! The houses are elaborately decorated. Sometimes it seems as if everything is just bigger in the USA: the parties, the cars, the cities.',
+        type: ContentType.Quote,
+        score: 5
+    },
+    {
+        content: 'You won’t believe how Halloween celebrations in Switzerland compare to the jaw-dropping extravagance of American parties—prepare to be shocked!',
+        type: ContentType.Quote,
+        score: 1
+    },
+    {
+        content: 'Recent studies reveal that 90% of Swiss households are now adopting American-style Halloween traditions, leaving traditional Swiss celebrations in the dust!',
+        type: ContentType.Quote,
+        score: 1,
+    },
     // {
     //     content: 'Conclusion1',
     //     type: ContentType.Conclusion,
@@ -99,7 +106,7 @@ const WorkDesk: React.FC<WorkDeskProps> = ({className}) => {
         type: ContentType.Title,
         score: 1
     }, {
-        content: 'Headline',
+        content: 'Photo',
         type: ContentType.Headline,
         score: 1
     }, {
@@ -134,7 +141,7 @@ const WorkDesk: React.FC<WorkDeskProps> = ({className}) => {
         },
         {
             id: 2,
-            text: 'Headline',
+            text: 'Photo',
             type: ContentType.Headline,
             options: workDesk.foundBlocks.filter((block) => block.type === ContentType.Headline).map((matchedBlock) => matchedBlock.content)
         },
@@ -208,41 +215,33 @@ const WorkDesk: React.FC<WorkDeskProps> = ({className}) => {
                     <div style={{ display: 'flex', gap: '20px', flexDirection: 'column'}}>
                         {workDesk.foundBlocks.filter((block) => block.type === selectedType).map(
                             (matchedBlock) => (
-                                <Card onClick={() => fillPlaceholder(matchedBlock.type, matchedBlock.content)} style={{cursor: 'pointer'}}>
-                                    <CardContent><Typography>{matchedBlock.content}</Typography></CardContent>
-                                </Card>
+                                matchedBlock.type !== ContentType.Quote ? (
+                                    <Card onClick={() => fillPlaceholder(matchedBlock.type, matchedBlock.content)} style={{cursor: 'pointer'}}>
+                                        <CardContent><Typography>{matchedBlock.content}</Typography></CardContent>
+                                    </Card>
+                                ) : (
+                                    <TweetCard>
+                                        <Box display="flex" alignItems="center" mb={1}>
+                                            <TweetAvatar alt="Genevieve" src="/path/to/avatar.png" />
+                                            <Box ml={2}>
+                                                <Typography variant="body1">
+                                                    <strong>@Genevieve_SwissUSA</strong>
+                                                </Typography>
+                                                <Typography variant="caption" color="textSecondary">
+                                                    Oct 31
+                                                </Typography>
+                                            </Box>
+                                        </Box>
+                                        <Typography variant="body2">
+                                            {matchedBlock.content}
+                                        </Typography>
+                                        <Twitter color="primary" fontSize="small" />
+                                    </TweetCard>
+                                )
                             )
                         )}
                     </div>
                 </div>
-                {/*{blocks.map(block => (*/}
-                {/*    <div key={block.id} style={{width: '90%', display: 'flex'}}>*/}
-                {/*        <div style={{ border: 'none', padding: '10px', width:'100%', display: 'flex', flexDirection:'column', borderRadius: '8px' }}>*/}
-                {/*            <p>{block.text}</p>*/}
-                {/*            <div style={{ display: 'flex', gap: '5px'}}>*/}
-                {/*                {block.options.map(option => (*/}
-                {/*                    <button*/}
-                {/*                        key={option}*/}
-                {/*                        onClick={() => fillPlaceholder(block.id, option)}*/}
-                {/*                        style={{*/}
-                {/*                            padding: '5px 10px',*/}
-                {/*                            borderRadius: '4px',*/}
-                {/*                            backgroundColor: '#007bff',*/}
-                {/*                            color: 'white',*/}
-                {/*                            height: 'auto',*/}
-                {/*                            border: 'none',*/}
-                {/*                            whiteSpace: 'normal',*/}
-                {/*                            wordWrap: 'break-word',*/}
-                {/*                            width: 'calc(100% / 3)',*/}
-                {/*                        }}*/}
-                {/*                    >*/}
-                {/*                        {option}*/}
-                {/*                    </button>*/}
-                {/*                ))}*/}
-                {/*            </div>*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*))}*/}
             </div>
             <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', padding: '20px', gap: '20px'}}>
                 <button

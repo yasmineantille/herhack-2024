@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: calc(100% - 100px);
 }
 
 .titleGrid {
@@ -11,9 +12,15 @@
     gap: 10px; /* Adjust the gap between pairs as needed */
 }
 
+.titleContainer {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
 .clickbaitPair {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     gap: 10px; /* Adjust the gap between clickbait and non-clickbait items as needed */
 }
 
@@ -33,14 +40,19 @@
 }
 
 .avatarContainer {
+    position: absolute;
     display: flex;
     justify-content: flex-start;
     width: 100%;
+    flex: 0;
+    align-items: flex-end;
+    left: 0;
+    bottom: 100px;
 }
 
 .avatar {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     margin: 20px;
 }
 
@@ -51,7 +63,8 @@
     padding: 10px;
     width: fit-content;
     max-width: 200px;
-    height: 50%;
+    height: 25%;
+    margin-bottom: 20px;
 }
 
 .speech-bubble::after {

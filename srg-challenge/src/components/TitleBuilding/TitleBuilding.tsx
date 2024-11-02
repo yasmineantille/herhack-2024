@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { StyledCard, SectionTitle, TweetCard, TweetAvatar } from '../StyledComponents/StyledComponents';
 import './TitleBuilding.css';
 import { ReactComponent as Avatar } from '../../assets/avatar.svg';
 
@@ -22,21 +23,33 @@ const TitleBuilding: React.FC<TitleBuildingProps> = () => {
             order: Math.random() > 0.5 ? 0 : 1
         },
         {
-            clickbait: 'You Won\'t Believe What Happened Next!',
-            notClickbait: 'A Surprising Twist in the Story',
-            info: 'Clickbait often uses phrases like "you won\'t believe, you\'ll be shocked, and you\'ll be amazed.',
+            clickbait: 'This one trick will change your life.',
+            notClickbait: 'Start Your Day with This Fun Trick to Feel Great and Get More Done!',
+            info: 'Vague Headlines that are not specific to a topic are often a sign of clickbait.',
             order: Math.random() > 0.5 ? 0 : 1
         },
         {
-            clickbait: 'This Simple Trick Will Help You Lose Weight Fast!',
-            notClickbait: 'Healthy Eating Habits for Weight Loss',
-            info: 'Clickbait often promises quick and easy solutions to complex problems.',
+            clickbait: 'This Heartwarming Story Will Make You Cry!',
+            notClickbait: 'Read This Touching Story About a Dog’s Journey Home',
+            info: 'Watch out for overly emotional triggers like "cry, laugh, smile, and frown.',
             order: Math.random() > 0.5 ? 0 : 1
         },
         {
-            clickbait: 'You\'ll Never Guess What Happened!',
-            notClickbait: 'A Surprising Turn of Events',
-            info: 'Clickbait often uses phrases like "you\'ll never guess, you\'ll never believe, and you\'ll never expect.',
+            clickbait: 'Finish All Your Homework in Just 15 Minutes with This Magic Trick!',
+            notClickbait: 'Learn Tips to Finish Your Homework Faster and Have More Free Time',
+            info: 'It\'s too good to be true. If it sounds too easy, it probably is.',
+            order: Math.random() > 0.5 ? 0 : 1
+        },
+        {
+            clickbait: 'Get a Puppy for Free!!! You Won’t Believe How Easy It Is!!!',
+            notClickbait: 'Learn How to Adopt a Puppy and Give It a Loving Home',
+            info: 'Overuse of punctuation is often an indication of clickbait.',
+            order: Math.random() > 0.5 ? 0 : 1
+        },
+        {
+            clickbait: 'These are the 5 best Halloween costume ideas for 2024',
+            notClickbait: 'Discover popular Costume Ideas for 2024',
+            info: 'Lists of "best of" lists are often a sign of clickbait.',
             order: Math.random() > 0.5 ? 0 : 1
         }
     ];
@@ -64,20 +77,22 @@ const TitleBuilding: React.FC<TitleBuildingProps> = () => {
     return (
         <div className="titleBuilding">
             <h1>Which is clickbait?</h1>
-            <div className="titleGrid">
-                {clickbaitPairs.map((pair, index) => (
-                    <div key={index} className={`clickbaitPair`}>
-                        <div className={`bait ${getClass(pair, pair.order === 0)}`}
-                             onClick={() => clickedOnClickbait(pair.order === 0, pair.info, index)}>{pair.order === 0 ? pair.clickbait : pair.notClickbait}</div>
-                        <div className={`bait ${getClass(pair, pair.order === 1)}`}
-                             onClick={() => clickedOnClickbait(pair.order === 1, pair.info, index)}>{pair.order === 1 ? pair.clickbait : pair.notClickbait}</div>
+            <div className="titleContainer">
+                <div className="avatarContainer">
+                    <Avatar className="avatar"/>
+                    <div className="speech-bubble">
+                        <p>{bubbleText}</p>
                     </div>
-                ))}
-            </div>
-            <div className="avatarContainer">
-                <Avatar className="avatar"/>
-                <div className="speech-bubble">
-                    <p>{bubbleText}</p>
+                </div>
+                <div className="titleGrid">
+                    {clickbaitPairs.map((pair, index) => (
+                        <div key={index} className={`clickbaitPair`}>
+                            <StyledCard className={`bait ${getClass(pair, pair.order === 0)}`}
+                                        onClick={() => clickedOnClickbait(pair.order === 0, pair.info, index)}>{pair.order === 0 ? pair.clickbait : pair.notClickbait}</StyledCard>
+                            <StyledCard className={`bait ${getClass(pair, pair.order === 1)}`}
+                                        onClick={() => clickedOnClickbait(pair.order === 1, pair.info, index)}>{pair.order === 1 ? pair.clickbait : pair.notClickbait}</StyledCard>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>

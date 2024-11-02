@@ -2,6 +2,7 @@ import React from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { AppBar, Toolbar, Button, Container, Stack } from '@mui/material';
 import ApartmentIcon from '@mui/icons-material/Apartment';
+import GamePlay from '../GamePlay/GamePlay';
 
 // Define the shared color
 const buttonColor = 'darkred';
@@ -12,24 +13,7 @@ interface BarProps {
 
 const GameBar: React.FC<BarProps> = ({ className }) => {
     const location = useLocation();
-
-    const getButtonText = () => {
-        switch (location.pathname) {
-            case '/workDesk':
-                return 'Back to the city';
-            default:
-                return 'Write your article';
-        }
-    };
-
-    const getButtonLink = () => {
-        switch (location.pathname) {
-            case '/':
-                return '/workDesk';
-            default:
-                return '/';
-        }
-    };
+    let showHelp = false;
 
     return (
         <AppBar
@@ -67,7 +51,7 @@ const GameBar: React.FC<BarProps> = ({ className }) => {
                         {/* Existing Button */}
                         <Button
                             component={RouterLink}
-                            to={getButtonLink()}
+                            to={'/workDesk'}
                             variant="contained"
                             sx={{
                                 color: '#fff',
@@ -77,11 +61,29 @@ const GameBar: React.FC<BarProps> = ({ className }) => {
                                 },
                             }}
                         >
-                            {getButtonText()}
+                            Write your article
                         </Button>
+
+                        <Button
+                            onClick={() => {
+                                showHelp = true;
+                            }}
+                            variant="contained"
+                            sx={{
+                                color: '#fff',
+                                backgroundColor: buttonColor,
+                                '&:hover': {
+                                    backgroundColor: `${buttonColor}CC`,
+                                },
+                            }}
+                        >
+                            Gameplay help
+                        </Button>
+
                     </Stack>
                 </Toolbar>
             </Container>
+            <GamePlay className={''}></GamePlay>
         </AppBar>
     );
 };

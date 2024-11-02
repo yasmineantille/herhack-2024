@@ -12,7 +12,7 @@ interface GamePlayProps {
 const GamePlay: React.FC<GamePlayProps> = ({showHelp, toggleShowHelp}) => {
 
     return (
-        <Card sx={{ minWidth: 275 }} className={`gameplay ${showHelp ? 'show': 'hide'}`}>
+        <Card sx={{ minWidth: 475 }} className={`gameplay ${showHelp ? 'show': 'hide'}`}>
             <CardHeader
                 avatar={
                    <Avatar style={{height: '100px', width: '100px'}} />
@@ -30,7 +30,13 @@ const GamePlay: React.FC<GamePlayProps> = ({showHelp, toggleShowHelp}) => {
                     Gameplay
                 </Typography>
                 <Typography variant="body2">
-                    Hi, I'm Scoopy! I'm a detective of digital truth. I'm here to help you learn how to spot fake news and misinformation online. Let's get started!
+                    Hi, I'm Scoopy! I'm a detective of digital truth. I'm here to help you learn how to spot fake news and misinformation online.
+                </Typography>
+                <Typography variant="body2">
+                    To get started click on any location in town to begin your investigation. You'll be presented with information that you'll need to write an unbiased and trustworthy article
+                </Typography>
+                <Typography variant="body2">
+                    Be careful though, there are some tricky articles out there that are trying to fool you. You'll need to be on the lookout for clickbait and fake news.
                 </Typography>
             </CardContent>
         </Card>

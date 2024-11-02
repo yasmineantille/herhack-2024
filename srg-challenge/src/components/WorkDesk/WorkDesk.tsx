@@ -138,7 +138,7 @@ const WorkDesk: React.FC<WorkDeskProps> = ({className}) => {
     const initialBlocks: BlockProps[] = [
         {
             id: 1,
-            text: '"Choose a Title"',
+            text: 'Choose a Title',
             type: ContentType.Title,
         },
         {

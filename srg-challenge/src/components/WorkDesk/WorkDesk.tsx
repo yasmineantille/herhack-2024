@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {Block, ContentType, Desk} from "../Models/Models";
-import { Card, CardContent, CardHeader, Typography } from "@mui/material";
+import {Card, CardContent, CardHeader, Typography} from "@mui/material";
 
 export interface WorkDeskProps {
     className?: string;
@@ -9,6 +9,7 @@ export interface WorkDeskProps {
 interface BlockProps {
     id: number;
     text: string;
+    type: ContentType;
     options: string[];
 }
 
@@ -92,121 +93,176 @@ const mockBlocks: Block[] = [
     // },
 ];
 
-const WorkDesk: React.FC<WorkDeskProps> = ({ className }) => {
-    const allBlocks : Block[] = [{
+const WorkDesk: React.FC<WorkDeskProps> = ({className}) => {
+    const allBlocks: Block[] = [{
         content: 'Title',
         type: ContentType.Title,
         score: 1
-    },{
+    }, {
         content: 'Headline',
         type: ContentType.Headline,
         score: 1
-    },{
+    }, {
         content: 'Teaser',
         type: ContentType.Teaser,
         score: 1
-    },{
+    }, {
         content: 'Introduction',
         type: ContentType.Introduction,
         score: 1
-    },{
+    }, {
         content: 'Quote',
         type: ContentType.Quote,
         score: 1
-    },{
+    }, {
         content: 'Conclusion',
         type: ContentType.Conclusion,
         score: 1
     }];
 
-    const workDesk : Desk = {
+    const workDesk: Desk = {
         foundBlocks: mockBlocks,
         allBlocks: allBlocks
     }
 
     const initialBlocks: BlockProps[] = [
-        { id: 1, text: 'Title', options: workDesk.foundBlocks.filter((block) => block.type === ContentType.Title).map((matchedBlock) => matchedBlock.content) },
-        { id: 2, text: 'Headline', options: workDesk.foundBlocks.filter((block) => block.type === ContentType.Headline).map((matchedBlock) => matchedBlock.content) },
-        { id: 3, text: 'Teaser', options: workDesk.foundBlocks.filter((block) => block.type === ContentType.Teaser).map((matchedBlock) => matchedBlock.content) },
-        { id: 4, text: 'Introduction', options: workDesk.foundBlocks.filter((block) => block.type === ContentType.Introduction).map((matchedBlock) => matchedBlock.content) },
-        { id: 5, text: 'Quote', options: workDesk.foundBlocks.filter((block) => block.type === ContentType.Quote).map((matchedBlock) => matchedBlock.content) },
-        { id: 6, text: 'Conclusion', options: workDesk.foundBlocks.filter((block) => block.type === ContentType.Conclusion).map((matchedBlock) => matchedBlock.content) },
+        {
+            id: 1,
+            text: 'Title',
+            type: ContentType.Title,
+            options: workDesk.foundBlocks.filter((block) => block.type === ContentType.Title).map((matchedBlock) => matchedBlock.content)
+        },
+        {
+            id: 2,
+            text: 'Headline',
+            type: ContentType.Headline,
+            options: workDesk.foundBlocks.filter((block) => block.type === ContentType.Headline).map((matchedBlock) => matchedBlock.content)
+        },
+        {
+            id: 3,
+            text: 'Teaser',
+            type: ContentType.Teaser,
+            options: workDesk.foundBlocks.filter((block) => block.type === ContentType.Teaser).map((matchedBlock) => matchedBlock.content)
+        },
+        {
+            id: 4,
+            text: 'Introduction',
+            type: ContentType.Introduction,
+            options: workDesk.foundBlocks.filter((block) => block.type === ContentType.Introduction).map((matchedBlock) => matchedBlock.content)
+        },
+        {
+            id: 5,
+            text: 'Quote',
+            type: ContentType.Quote,
+            options: workDesk.foundBlocks.filter((block) => block.type === ContentType.Quote).map((matchedBlock) => matchedBlock.content)
+        },
+        {
+            id: 6,
+            text: 'Conclusion',
+            type: ContentType.Conclusion,
+            options: workDesk.foundBlocks.filter((block) => block.type === ContentType.Conclusion).map((matchedBlock) => matchedBlock.content)
+        },
     ];
 
     const [blocks, setBlocks] = useState<BlockProps[]>(initialBlocks);
+    const [selectedType, setSelectedType] = useState<ContentType | null>(ContentType.Title);
 
-    const fillPlaceholder = (id: number, option: string) => {
+    const fillPlaceholder = (type: ContentType, text: string) => {
         setBlocks(prevBlocks =>
             prevBlocks.map(block =>
-                block.id === id
-                    ? { ...block, text: option }
+                block.type === type
+                    ? {...block, text}
                     : block
             )
         );
     };
+
+    const changeSelectedBlockType = (type: ContentType) => {
+        setSelectedType(type);
+    }
 
     const submitArticle = () => {
         console.log("submitting article");
     }
 
     return (
-            <div className={className} style={{ padding: '20px', overflowY: 'auto' }}>
-                <h1>Write your article</h1>
-                <h5>Select an option for each part of your media piece to write an informed, unbiased trustworthy article, just like a real journalist.</h5>
-                <div style={{ display: 'flex', flexDirection: 'column', flexWrap: 'wrap', justifyContent: 'center', gap: '20px' }}>
-                    {initialBlocks.map(block => (
-                        <Card>
-                            <CardContent><Typography>{block.text}</Typography></CardContent>
-                        </Card>
-                    ))}
-                    {/*{blocks.map(block => (*/}
-                    {/*    <div key={block.id} style={{width: '90%', display: 'flex'}}>*/}
-                    {/*        <div style={{ border: 'none', padding: '10px', width:'100%', display: 'flex', flexDirection:'column', borderRadius: '8px' }}>*/}
-                    {/*            <p>{block.text}</p>*/}
-                    {/*            <div style={{ display: 'flex', gap: '5px'}}>*/}
-                    {/*                {block.options.map(option => (*/}
-                    {/*                    <button*/}
-                    {/*                        key={option}*/}
-                    {/*                        onClick={() => fillPlaceholder(block.id, option)}*/}
-                    {/*                        style={{*/}
-                    {/*                            padding: '5px 10px',*/}
-                    {/*                            borderRadius: '4px',*/}
-                    {/*                            backgroundColor: '#007bff',*/}
-                    {/*                            color: 'white',*/}
-                    {/*                            height: 'auto',*/}
-                    {/*                            border: 'none',*/}
-                    {/*                            whiteSpace: 'normal',*/}
-                    {/*                            wordWrap: 'break-word',*/}
-                    {/*                            width: 'calc(100% / 3)',*/}
-                    {/*                        }}*/}
-                    {/*                    >*/}
-                    {/*                        {option}*/}
-                    {/*                    </button>*/}
-                    {/*                ))}*/}
-                    {/*            </div>*/}
-                    {/*        </div>*/}
-                    {/*    </div>*/}
-                    {/*))}*/}
+        <div className={className} style={{padding: '20px', overflowY: 'auto', height: 'calc(100% - 100px)'}}>
+            <h1>Write your article</h1>
+            <h5>Select an option for each part of your media piece to write an informed, unbiased trustworthy article,
+                just like a real journalist.</h5>
+            <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                gap: '20px'
+            }}>
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px'}}>
+                    <div style={{ display: 'flex', gap: '20px', flexDirection: 'column', cursor: 'pointer'}}>
+                        {blocks.map(block => (
+                            <Card onClick={() => changeSelectedBlockType(block.type)}>
+                                <CardContent><Typography>{block.text}</Typography></CardContent>
+                            </Card>
+                        ))}
+                    </div>
+                    <div style={{ display: 'flex', gap: '20px', flexDirection: 'column'}}>
+                        {workDesk.foundBlocks.filter((block) => block.type === selectedType).map(
+                            (matchedBlock) => (
+                                <Card onClick={() => fillPlaceholder(matchedBlock.type, matchedBlock.content)} style={{cursor: 'pointer'}}>
+                                    <CardContent><Typography>{matchedBlock.content}</Typography></CardContent>
+                                </Card>
+                            )
+                        )}
+                    </div>
                 </div>
-                <div  style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', padding: '20px', gap: '20px' }}>
-                    <button
-                        onClick={() => submitArticle()}
-                        style={{
-                            padding: '5px 10px',
-                            borderRadius: '4px',
-                            backgroundColor: '#007bff',
-                            color: 'white',
-                            height: 'auto',
-                            border: 'none',
-                            whiteSpace: 'normal',
-                            wordWrap: 'break-word',
-                            width: 'calc(100% / 3)',
-                        }}
-                    >
-                        Submit to editor
-                    </button>
-                </div>
+                {/*{blocks.map(block => (*/}
+                {/*    <div key={block.id} style={{width: '90%', display: 'flex'}}>*/}
+                {/*        <div style={{ border: 'none', padding: '10px', width:'100%', display: 'flex', flexDirection:'column', borderRadius: '8px' }}>*/}
+                {/*            <p>{block.text}</p>*/}
+                {/*            <div style={{ display: 'flex', gap: '5px'}}>*/}
+                {/*                {block.options.map(option => (*/}
+                {/*                    <button*/}
+                {/*                        key={option}*/}
+                {/*                        onClick={() => fillPlaceholder(block.id, option)}*/}
+                {/*                        style={{*/}
+                {/*                            padding: '5px 10px',*/}
+                {/*                            borderRadius: '4px',*/}
+                {/*                            backgroundColor: '#007bff',*/}
+                {/*                            color: 'white',*/}
+                {/*                            height: 'auto',*/}
+                {/*                            border: 'none',*/}
+                {/*                            whiteSpace: 'normal',*/}
+                {/*                            wordWrap: 'break-word',*/}
+                {/*                            width: 'calc(100% / 3)',*/}
+                {/*                        }}*/}
+                {/*                    >*/}
+                {/*                        {option}*/}
+                {/*                    </button>*/}
+                {/*                ))}*/}
+                {/*            </div>*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*))}*/}
             </div>
+            <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', padding: '20px', gap: '20px'}}>
+                <button
+                    onClick={() => submitArticle()}
+                    style={{
+                        padding: '5px 10px',
+                        borderRadius: '4px',
+                        backgroundColor: '#007bff',
+                        color: 'white',
+                        height: 'auto',
+                        border: 'none',
+                        whiteSpace: 'normal',
+                        wordWrap: 'break-word',
+                        width: 'calc(100% / 3)',
+                    }}
+                >
+                    Submit to editor
+                </button>
+            </div>
+        </div>
     );
 };
 

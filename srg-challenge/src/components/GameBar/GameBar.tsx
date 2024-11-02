@@ -1,12 +1,14 @@
 import React from 'react';
-import './GameBar.css';
-import {Link, useLocation} from "react-router-dom";
+import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { AppBar, Toolbar, Button, Container } from '@mui/material';
+import HomeIcon from '@mui/icons-material/Home';
+import ArticleIcon from '@mui/icons-material/Article';
 
 interface BarProps {
     className?: string;
 }
 
-const GameBar: React.FC<BarProps> = ({className}) => {
+const GameBar: React.FC<BarProps> = ({ className }) => {
     const location = useLocation();
 
     const getButtonText = () => {
@@ -25,22 +27,48 @@ const GameBar: React.FC<BarProps> = ({className}) => {
             default:
                 return '/';
         }
-    }
+    };
+
+    const getButtonIcon = () => {
+        switch (location.pathname) {
+            case '/workDesk':
+                return <HomeIcon />;
+            default:
+                return <ArticleIcon />;
+        }
+    };
 
     return (
-        <div className={className}
-             style={{position: 'fixed', bottom: 0, width: '100%', textAlign: 'center', padding: '10px'}}>
-            <Link to={getButtonLink()} style={{textDecoration: 'none'}}>
-                <button style={{
-                    padding: '5px 10px',
-                    borderRadius: '4px',
-                    height: 'auto',
-                    width: 'auto',
-                    color: 'white',
-                }}
-                >{getButtonText()}</button>
-            </Link>
-        </div>
+        <AppBar
+            position="fixed"
+            sx={{
+                top: 'auto',
+                bottom: 0,
+                backgroundColor: '#333',
+                py: 1,
+            }}
+            className={className}
+        >
+            <Container maxWidth="md">
+                <Toolbar sx={{ display: 'flex', justifyContent: 'center' }}>
+                    <Button
+                        component={RouterLink}
+                        to={getButtonLink()}
+                        variant="contained"
+                        startIcon={getButtonIcon()}
+                        sx={{
+                            color: '#fff',
+                            backgroundColor: '#3f51b5',
+                            '&:hover': {
+                                backgroundColor: '#2c387e',
+                            },
+                        }}
+                    >
+                        {getButtonText()}
+                    </Button>
+                </Toolbar>
+            </Container>
+        </AppBar>
     );
 };
 

@@ -83,26 +83,22 @@ const mockBlocks: Block[] = [
         type: ContentType.Quote,
         score: 1,
     },
-    // {
-    //     content: 'Conclusion1',
-    //     type: ContentType.Conclusion,
-    //     score: 1
-    // },
-    // {
-    //     content: 'Conclusion2',
-    //     type: ContentType.Conclusion,
-    //     score: 1
-    // },
+    {
+        content: 'Although the USA and Switzerland differ in size and in their traditions and holidays, there is still a lot that spills over across the Atlantic. Halloween, Black Friday or even the presidential election - what happens in the USA also influences us here',
+        type: ContentType.Conclusion,
+        score: 5
+    },
+    {
+        content: 'In an unexpected turn of events, the USA’s influence on Swiss culture has reached new heights. Halloween celebrations are turning into extravagant spectacles, Black Friday is now a national shopping event, and the buzz of U.S. presidential elections is resonating in every Swiss home. Clearly, the American way of life is taking root, leaving a lasting mark on Switzerland!',
+        type: ContentType.Conclusion,
+        score: 1
+    },
 ];
 
 const WorkDesk: React.FC<WorkDeskProps> = ({className}) => {
     const allBlocks: Block[] = [{
         content: 'Title',
         type: ContentType.Title,
-        score: 1
-    }, {
-        content: 'Photo',
-        type: ContentType.Headline,
         score: 1
     }, {
         content: 'Teaser',
@@ -132,11 +128,6 @@ const WorkDesk: React.FC<WorkDeskProps> = ({className}) => {
             id: 1,
             text: 'Choose a Title',
             type: ContentType.Title,
-        },
-        {
-            id: 2,
-            text: 'Choose a Photo',
-            type: ContentType.Headline,
         },
         {
             id: 3,

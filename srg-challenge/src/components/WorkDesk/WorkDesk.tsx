@@ -69,17 +69,29 @@ const mockBlocks: Block[] = [
         score: 1
     },
     {
-        content: 'Halloween is becoming increasingly popular in Switzerland. But in the USA it\'s huge! The houses are elaborately decorated. Sometimes it seems as if everything is just bigger in the USA: the parties, the cars, the cities.',
+    content: {
+        tweetContent: 'Genevieve (12), who has been living in Switzerland for a long time, carves pumpkins with her American family every year.',
+        tweetAuthor: 'SRFKids',
+        tweetDate: 'Oct 30',
+    },
         type: ContentType.Quote,
         score: 5
     },
     {
-        content: 'You won’t believe how Halloween celebrations in Switzerland compare to the jaw-dropping extravagance of American parties—prepare to be shocked!',
+        content: {
+            tweetContent: 'You won’t believe how Halloween celebrations in Switzerland compare to the jaw-dropping extravagance of American parties—prepare to be shocked!',
+            tweetAuthor: 'Genevieve_SwissUSA',
+            tweetDate: 'Oct 31',
+        },
         type: ContentType.Quote,
         score: 1
     },
     {
-        content: 'Recent studies reveal that 90% of Swiss households are now adopting American-style Halloween traditions, leaving traditional Swiss celebrations in the dust!',
+        content: {
+            tweetContent: 'Recent studies reveal that 90% of Swiss households are now adopting American-style Halloween traditions, leaving traditional Swiss celebrations in the dust!',
+            tweetAuthor: 'www.spookycarvingtips.com',
+            tweetDate: 'Oct 31',
+        },
         type: ContentType.Quote,
         score: 1,
     },
@@ -126,7 +138,7 @@ const WorkDesk: React.FC<WorkDeskProps> = ({className}) => {
     const initialBlocks: BlockProps[] = [
         {
             id: 1,
-            text: 'Choose a Title',
+            text: '"Choose a Title"',
             type: ContentType.Title,
         },
         {
@@ -208,25 +220,27 @@ const WorkDesk: React.FC<WorkDeskProps> = ({className}) => {
                         <span>Choose the neutral, unbiased and trustworthy option</span>
                         {workDesk.foundBlocks.filter((block) => block.type === selectedType).map(
                             (matchedBlock) => (
-                                matchedBlock.type !== ContentType.Quote ? (
-                                    <Card onClick={() => fillPlaceholder(matchedBlock.type, matchedBlock.content)} style={{cursor: 'pointer'}}>
+                                matchedBlock.type !== ContentType.Quote && typeof matchedBlock.content === 'string' ? (
+                                    <Card onClick={() => fillPlaceholder(matchedBlock.type,typeof matchedBlock.content === 'string' ? matchedBlock.content : '')} style={{cursor: 'pointer'}}>
                                         <CardContent><Typography>{matchedBlock.content}</Typography></CardContent>
                                     </Card>
                                 ) : (
-                                    <TweetCard onClick={() => fillPlaceholder(matchedBlock.type, matchedBlock.content)}>
+                                    <TweetCard onClick={() => fillPlaceholder(matchedBlock.type, typeof matchedBlock.content === 'string' ? matchedBlock.content : matchedBlock.content.tweetContent)}>
                                         <Box display="flex" alignItems="center" mb={1}>
                                             <TweetAvatar alt="Genevieve" src="/path/to/avatar.png" />
                                             <Box ml={2}>
                                                 <Typography variant="body1">
-                                                    <strong>@Genevieve_SwissUSA</strong>
+                                                    <strong>
+                                                        @{typeof matchedBlock.content != 'string' ? matchedBlock.content.tweetAuthor : ''}
+                                                    </strong>
                                                 </Typography>
                                                 <Typography variant="caption" color="textSecondary">
-                                                    Oct 31
+                                                    {typeof matchedBlock.content != 'string' ? matchedBlock.content.tweetDate : ''}
                                                 </Typography>
                                             </Box>
                                         </Box>
                                         <Typography variant="body2">
-                                            {matchedBlock.content}
+                                            {typeof matchedBlock.content != 'string' ? matchedBlock.content.tweetContent : ''}
                                         </Typography>
                                         <Twitter color="primary" fontSize="small" />
                                     </TweetCard>

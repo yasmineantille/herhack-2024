@@ -7,8 +7,14 @@ export enum ContentType {
     Conclusion = 'CONCLUSION',
 }
 
+interface TweetInfo {
+    tweetContent: string;
+    tweetAuthor: string;
+    tweetDate: string;
+}
+
 export interface Block {
-    content: string;
+    content: string | TweetInfo;
     type: ContentType;
     score: number;
 }

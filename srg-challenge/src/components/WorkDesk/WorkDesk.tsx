@@ -227,7 +227,7 @@ const WorkDesk: React.FC<WorkDeskProps> = ({className}) => {
                                 ) : (
                                     <TweetCard onClick={() => fillPlaceholder(matchedBlock.type, typeof matchedBlock.content === 'string' ? matchedBlock.content : matchedBlock.content.tweetContent)}>
                                         <Box display="flex" alignItems="center" mb={1}>
-                                            <TweetAvatar alt="Genevieve" src="/path/to/avatar.png" />
+                                            <TweetAvatar alt={ typeof matchedBlock.content != 'string' ? matchedBlock.content.tweetAuthor : 'Genevieve'} src="/path/to/avatar.png" />
                                             <Box ml={2}>
                                                 <Typography variant="body1">
                                                     <strong>

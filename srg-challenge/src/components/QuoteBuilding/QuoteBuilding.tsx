@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Box, Typography, Grid2 as Grid } from '@mui/material';
-import { StyledSourceCard, SectionTitle, TweetCard, TweetAvatar } from '../StyledComponents/StyledComponents';
-import { EmojiObjects, LocalLibrary, Info } from '@mui/icons-material';
+import { StyledFlippableCard, SectionTitle, TweetCard, TweetAvatar } from '../StyledComponents/StyledComponents';
 import FlippableCard from '../FlippableCard/FlippableCard';
 import './QuoteBuilding.css';
 
@@ -29,37 +28,29 @@ const QuoteBuilding = () => {
                         />
                     </Grid>
                     <Grid size={{xs:12, md:6}}>
-                        <StyledSourceCard>
-                            <LocalLibrary color="action" fontSize="large" />
-                            <Typography variant="h5" color="primary">
-                                Blogs
-                            </Typography>
-                            <Typography>
-                                Häufig Meinungen, nicht immer überprüft.
-                            </Typography>
-                        </StyledSourceCard>
+                        <FlippableCard
+                            title={'Blogs'}
+                            icon={'locallibrary'}
+                            flipsideText={'Häufig Meinungen, nicht immer überprüft.'}
+                        />
                     </Grid>
-                    <Grid size={{xs:12, md:6}}>
-                        <StyledSourceCard>
-                            <Info color="action" fontSize="large" />
-                            <Typography variant="h5" color="primary">
-                                Zusätzliche Quellen
-                            </Typography>
-                            <Typography>
-                                Wenn mehrere seriöse Seiten dieselbe Info teilen, ist sie oft glaubwürdig.
-                            </Typography>
-                        </StyledSourceCard>
+                    <Grid size={{xs:12, md:6}} >
+                        <FlippableCard
+                            title={'Zusätzliche Quellen'}
+                            icon={'book'}
+                            flipsideText={'Wenn mehrere seriöse Seiten dieselbe Info teilen, ist sie oft glaubwürdig.'}
+                        />
                     </Grid>
                 </Grid>
                 <Box mt={3}>
-                    <StyledSourceCard>
+                    <StyledFlippableCard>
                         <Typography variant="h5" color="secondary">
                             Sprache beachten
                         </Typography>
                         <Typography>
                             Sensationelle Wörter können auf weniger vertrauenswürdige Inhalte hinweisen.
                         </Typography>
-                    </StyledSourceCard>
+                    </StyledFlippableCard>
                 </Box>
             </Box>
         </Container>

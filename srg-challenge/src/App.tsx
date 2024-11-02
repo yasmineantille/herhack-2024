@@ -8,10 +8,11 @@ import TitleBuilding from "./components/TitleBuilding/TitleBuilding";
 import QuoteBuilding from "./components/QuoteBuilding/QuoteBuilding";
 import {CssBaseline, ThemeProvider} from "@mui/material";
 import theme from "./theme";
+import getTheme from "./theme";
 
 function App() {
   return (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={getTheme('light')}>
           <CssBaseline />
         <Router basename={ROOT}>
             <Routes>

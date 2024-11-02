@@ -7,7 +7,7 @@ export const StyledCard = styled(Card)(({ theme }) => ({
     borderRadius: theme.shape.borderRadius,
 }));
 
-export const StyledSourceCard = styled(Card)(({ theme }) => ({
+export const StyledFlippableCard = styled(Card)(({ theme }) => ({
     padding: theme.spacing(2),
     marginBottom: theme.spacing(2),
     borderRadius: theme.shape.borderRadius,
@@ -15,6 +15,7 @@ export const StyledSourceCard = styled(Card)(({ theme }) => ({
     flexDirection: 'column',
     justifyContent: 'space-between',
     height: '100%',
+    backgroundColor: theme.palette.primary.dark,
 }));
 
 export const SectionTitle = styled(Typography)(({ theme }) => ({

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Box, Typography } from '@mui/material';
 import {Newspaper, LocalLibrary} from '@mui/icons-material';
-import { StyledSourceCard } from '../StyledComponents/StyledComponents';
+import { StyledFlippableCard } from '../StyledComponents/StyledComponents';
 import './FlippableCard.css';
 import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
+import BookIcon from '@mui/icons-material/Book';
 
 interface FlippableCardProps {
     icon: string;
@@ -18,8 +19,10 @@ const IconBox: React.FC<{ icon: string }> = ({ icon }) => {
                 return <Newspaper color="action" fontSize="large" />;
             case 'connect':
                 return <ConnectWithoutContactIcon color='action' fontSize='large' />;
-            case 'library':
+            case 'locallibrary':
                 return <LocalLibrary color="action" fontSize="large" />;
+            case 'book':
+                return <BookIcon color="action" fontSize="large"/>;
             default:
                 return null;
         }
@@ -31,7 +34,7 @@ const IconBox: React.FC<{ icon: string }> = ({ icon }) => {
                 width: 64,
                 height: 64,
                 color: 'white',
-                backgroundColor: 'primary.light',
+                backgroundColor: 'secondary.light',
                 borderRadius: '50%',
                 display: 'flex',
                 justifyContent: 'center',
@@ -51,7 +54,7 @@ const FlippableCard: React.FC<FlippableCardProps> = ({ icon, title, flipsideText
     };
 
     return (
-        <StyledSourceCard onClick={handleCardClick} className={`flippable-card ${isFlipped ? 'flipped' : ''}`}>
+        <StyledFlippableCard onClick={handleCardClick} className={`flippable-card ${isFlipped ? 'flipped' : ''}`}>
             <Box className="card-content">
                 <Box className="card-front">
                     <Box display="flex" justifyContent="center" >
@@ -70,7 +73,7 @@ const FlippableCard: React.FC<FlippableCardProps> = ({ icon, title, flipsideText
                     </Typography>
                 </Box>
             </Box>
-        </StyledSourceCard>
+        </StyledFlippableCard>
     );
 };
 

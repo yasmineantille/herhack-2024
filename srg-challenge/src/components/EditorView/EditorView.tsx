@@ -22,37 +22,37 @@ interface ReportPart {
 const EditorView: React.FC<EditorProps> = () => {
     const initialReportParts: ReportPart[] = [
         {
-            content: 'Tips to Help You Manage Your Homework Efficiently',
+            content: 'Happy Halloween! How people celebrate in the USA',
             info: 'Watch out for sensational wording like "amazing, shocking and unbelievable.',
             rating: Rating.CORRECT,
             points: 1
         },
         {
-            content: 'This one trick will change your life.',
+            content: 'This one Halloween trick will change your life!',
             info: 'Vague Headlines that are not specific to a topic are often a sign of clickbait.',
             rating: Rating.CLICKBAIT,
             points: 1
         },
         {
-            content: 'Read This Touching Story About a Dog’s Journey Home',
+            content: 'Carved pumpkins and a pile of sweets: Halloween is an important and great tradition in the USA...',
             info: 'Watch out for overly emotional triggers like "cry, laugh, smile, and frown.',
             rating: Rating.CORRECT,
             points: 1
         },
         {
-            content: 'Finish All Your Homework in Just 15 Minutes with This Magic Trick!',
+            content: 'The USA captivates global interest with its films, music, and traditions like Halloween, especially with the presidential election approaching...',
             info: 'It\'s too good to be true. If it sounds too easy, it probably is.',
-            rating: Rating.FAKE_NEWS,
-            points: 1
-        },
-        {
-            content: 'Learn How to Adopt a Puppy and Give It a Loving Home',
-            info: 'Overuse of punctuation is often an indication of clickbait.',
             rating: Rating.CORRECT,
             points: 1
         },
         {
-            content: 'Discover popular Costume Ideas for 2024',
+            content: 'Recent studies reveal that 90% of Swiss households are now adopting American-style Halloween traditions...',
+            info: 'Statements without sources can easily be faked and should be critically questioned.',
+            rating: Rating.FAKE_NEWS,
+            points: 1
+        },
+        {
+            content: 'Although the USA and Switzerland differ in size and in their traditions and holidays...',
             info: 'Lists of "best of" lists are often a sign of clickbait.',
             rating: Rating.CORRECT,
             points: 1
@@ -104,7 +104,7 @@ const EditorView: React.FC<EditorProps> = () => {
         const fakeNews = reportParts
             .filter((part) => part.rating === Rating.FAKE_NEWS)
             .reduce((sum) => (sum + 1), 0);
-        return clickbaits + ' part is clickbait' + (fakeNews > 0 ? ' and ' + fakeNews + ' part is incorrect news.' : '');
+        return clickbaits + ' of them is clickbait' + (fakeNews > 0 ? ' and ' + fakeNews + ' is incorrect.' : '');
     }
 
     return (

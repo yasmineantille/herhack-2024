@@ -45,7 +45,7 @@ const QuoteBuilding = () => {
             </Box>
             <div className="avatarContainer">
                 <Avatar className="avatar" />
-                <div className="speech-bubble">
+                <div className="speech-bubble neutral">
                     <h4>Pay Attention to Language</h4>
                     <p>
                         Sensational words can indicate less trustworthy content.

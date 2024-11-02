@@ -19,7 +19,7 @@ const City: React.FC<GameProps> = () => {
         <div className={'game'}>
             <div className={'skyline'}></div>
             <GameButton onClick={() => navigateTo('/title')} icon={DrawIcon} className={'titleBuildingBtn'}></GameButton>
-            <GameButton onClick={() => navigateTo('/quote')} icon={FormatQuoteIcon} className={'quote'}></GameButton>
+            <GameButton onClick={() => navigateTo('/quote')} icon={FormatQuoteIcon} className={'quoteBuildingBtn'}></GameButton>
         </div>
     );
 }

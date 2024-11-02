@@ -29,7 +29,6 @@ const GameBar: React.FC<BarProps> = ({ className }) => {
             <Container maxWidth="md">
                 <Toolbar sx={{ display: 'flex', justifyContent: 'center' }}>
                     <Stack direction="row" spacing={2}>
-                        {/* Conditionally render the Home Button */}
                         {location.pathname !== '/' && (
                             <Button
                                 component={RouterLink}
@@ -47,8 +46,6 @@ const GameBar: React.FC<BarProps> = ({ className }) => {
                                 Back to the city
                             </Button>
                         )}
-
-                        {/* Existing Button */}
                         <Button
                             component={RouterLink}
                             to={'/workDesk'}

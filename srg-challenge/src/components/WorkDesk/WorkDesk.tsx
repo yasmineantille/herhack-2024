@@ -12,7 +12,6 @@ interface BlockProps {
     id: number;
     text: string;
     type: ContentType;
-    options: string[];
 }
 
 const mockBlocks: Block[] = [
@@ -130,39 +129,33 @@ const WorkDesk: React.FC<WorkDeskProps> = ({className}) => {
     const initialBlocks: BlockProps[] = [
         {
             id: 1,
-            text: 'Title',
+            text: 'Choose a Title',
             type: ContentType.Title,
-            options: workDesk.foundBlocks.filter((block) => block.type === ContentType.Title).map((matchedBlock) => matchedBlock.content)
         },
         {
             id: 2,
-            text: 'Photo',
+            text: 'Choose a Photo',
             type: ContentType.Headline,
-            options: workDesk.foundBlocks.filter((block) => block.type === ContentType.Headline).map((matchedBlock) => matchedBlock.content)
         },
         {
             id: 3,
-            text: 'Teaser',
+            text: 'Choose a Teaser',
             type: ContentType.Teaser,
-            options: workDesk.foundBlocks.filter((block) => block.type === ContentType.Teaser).map((matchedBlock) => matchedBlock.content)
         },
         {
             id: 4,
-            text: 'Introduction',
+            text: 'Choose an Introduction',
             type: ContentType.Introduction,
-            options: workDesk.foundBlocks.filter((block) => block.type === ContentType.Introduction).map((matchedBlock) => matchedBlock.content)
         },
         {
             id: 5,
-            text: 'Quote',
+            text: 'Choose a Quote',
             type: ContentType.Quote,
-            options: workDesk.foundBlocks.filter((block) => block.type === ContentType.Quote).map((matchedBlock) => matchedBlock.content)
         },
         {
             id: 6,
-            text: 'Conclusion',
+            text: 'Choose a Conclusion',
             type: ContentType.Conclusion,
-            options: workDesk.foundBlocks.filter((block) => block.type === ContentType.Conclusion).map((matchedBlock) => matchedBlock.content)
         },
     ];
 

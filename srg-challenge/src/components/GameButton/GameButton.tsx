@@ -9,8 +9,8 @@ interface ButtonProps {
     color?: string;
 }
 
-const GameButton: React.FC<ButtonProps> = ({ onClick, className, icon: Icon, color = 'darkred' }) => {
-    const hoverColor = color === 'darkred' ? 'red' : `${color}CC`;
+const GameButton: React.FC<ButtonProps> = ({ onClick, className, icon: Icon, color = '#FFD93D' }) => {
+    const hoverColor = color === '#FFD93D' ? '#FFD93D' : `${color}CC`;
 
     return (
         <IconButton
@@ -21,7 +21,7 @@ const GameButton: React.FC<ButtonProps> = ({ onClick, className, icon: Icon, col
                 width: 70,
                 height: 70,
                 backgroundColor: color,
-                color: 'white',
+                color: '#D35B5B',
                 borderRadius: '50%',
                 boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.3)',
                 transition: 'transform 0.2s ease, box-shadow 0.2s ease',
@@ -35,7 +35,6 @@ const GameButton: React.FC<ButtonProps> = ({ onClick, className, icon: Icon, col
                 },
                 '& .MuiSvgIcon-root': {
                     fontSize: 38,
-                    filter: 'drop-shadow(0px 2px 4px rgba(255, 255, 255, 0.6))',
                 },
                 '&::after': {
                     content: '""',

@@ -21,3 +21,15 @@
     left: 630px;
     position: absolute;
 }
+
+.mock1BuildingBtn {
+    top: 520px;
+    left: 880px;
+    position: absolute;
+}
+
+.mock2BuildingBtn {
+    top: 320px;
+    left: 1030px;
+    position: absolute;
+}

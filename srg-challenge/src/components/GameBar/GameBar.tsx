@@ -34,13 +34,6 @@ const GameBar: React.FC<BarProps> = ({ className, toggleShowHelp }) => {
                                 to="/"
                                 variant="contained"
                                 startIcon={<ApartmentIcon />}
-                                sx={{
-                                    color: '#fff',
-                                    backgroundColor: buttonColor,
-                                    '&:hover': {
-                                        backgroundColor: `${buttonColor}CC`, // Slightly transparent on hover
-                                    },
-                                }}
                             >
                                 Back to the city
                             </Button>
@@ -50,13 +43,6 @@ const GameBar: React.FC<BarProps> = ({ className, toggleShowHelp }) => {
                             component={RouterLink}
                             to={'/workDesk'}
                             variant="contained"
-                            sx={{
-                                color: '#fff',
-                                backgroundColor: buttonColor,
-                                '&:hover': {
-                                    backgroundColor: `${buttonColor}CC`,
-                                },
-                            }}
                         >
                             Write your article
                         </Button>
@@ -66,13 +52,6 @@ const GameBar: React.FC<BarProps> = ({ className, toggleShowHelp }) => {
                                 toggleShowHelp();
                             }}
                             variant="contained"
-                            sx={{
-                                color: '#fff',
-                                backgroundColor: buttonColor,
-                                '&:hover': {
-                                    backgroundColor: `${buttonColor}CC`,
-                                },
-                            }}
                         >
                             Gameplay help
                         </Button>

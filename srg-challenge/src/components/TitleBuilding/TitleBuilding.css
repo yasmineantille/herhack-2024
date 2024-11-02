@@ -29,14 +29,15 @@
     margin: 5px;
     padding: 5px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .correct {
-    border: 2px solid green;
+    border: 2px solid #5CD65C;
 }
 
 .incorrect {
-    border: 2px solid red;
+    border: 2px solid #FF6B6B;
 }
 
 .avatarContainer {
@@ -58,13 +59,24 @@
 
 .speech-bubble {
     position: relative;
-    background: #b2e7ec;
     border-radius: .4em;
     padding: 10px;
     width: fit-content;
     max-width: 200px;
     height: 25%;
     margin-bottom: 20px;
+}
+
+.speech-bubble.neutral {
+    background-color: #D6F3FF;
+}
+
+.speech-bubble.correct {
+    background-color: #5CD65C;
+}
+
+.speech-bubble.incorrect {
+    background-color: #FF6B6B;
 }
 
 .speech-bubble::after {
@@ -75,8 +87,19 @@
     width: 0;
     height: 0;
     border: 10px solid transparent;
-    border-right-color: #b2e7ec;
     border-left: 0;
     border-top: 0;
     margin-top: -10px; /* Center the tail vertically */
+}
+
+.speech-bubble.neutral::after {
+    border-right-color: #D6F3FF;
+}
+
+.speech-bubble.correct::after {
+    border-right-color: #5CD65C;
+}
+
+.speech-bubble.incorrect::after {
+    border-right-color: #FF6B6B;
 }

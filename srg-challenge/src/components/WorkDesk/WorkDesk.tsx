@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {Block, ContentType, Desk} from "../Models/Models";
-import {Box, Card, CardContent, CardHeader, Typography} from "@mui/material";
+import {Box, Button, Card, CardContent, CardHeader, Typography} from "@mui/material";
 import {TweetAvatar, TweetCard } from "../StyledComponents/StyledComponents";
 import { Twitter } from "@mui/icons-material";
 
@@ -241,22 +241,21 @@ const WorkDesk: React.FC<WorkDeskProps> = ({className}) => {
                 </div>
             </div>
             <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', padding: '20px', gap: '20px'}}>
-                <button
-                    onClick={() => submitArticle()}
-                    style={{
-                        padding: '5px 10px',
-                        borderRadius: '4px',
-                        backgroundColor: '#007bff',
-                        color: 'white',
-                        height: 'auto',
-                        border: 'none',
-                        whiteSpace: 'normal',
-                        wordWrap: 'break-word',
-                        width: 'calc(100% / 3)',
-                    }}
-                >
-                    Submit to editor
-                </button>
+                <Button onClick={() => submitArticle()}>Submit to editor</Button>
+                {/*<button*/}
+                {/*    onClick={() => submitArticle()}*/}
+                {/*    style={{*/}
+                {/*        padding: '5px 10px',*/}
+                {/*        borderRadius: '4px',*/}
+                {/*        height: 'auto',*/}
+                {/*        border: 'none',*/}
+                {/*        whiteSpace: 'normal',*/}
+                {/*        wordWrap: 'break-word',*/}
+                {/*        width: 'calc(100% / 3)',*/}
+                {/*    }}*/}
+                {/*>*/}
+                {/*    Submit to editor*/}
+                {/*</button>*/}
             </div>
         </div>
     );

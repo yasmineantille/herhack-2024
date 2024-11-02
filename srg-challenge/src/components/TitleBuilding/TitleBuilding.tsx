@@ -56,6 +56,7 @@ const TitleBuilding: React.FC<TitleBuildingProps> = () => {
 
     const [clickbaitPairs, setClickbaitPairs] = useState<ClickbaitPair[]>(initialClickbaitPairs);
     const [bubbleText, setBubbleText] = useState('Choose the clickbait example in every pair by clicking on it');
+    const [bubbleColor, setBubbleColor] = useState('neutral');
 
     const clickedOnClickbait = (isClickbait: boolean, info: string, index: number) => {
         setClickbaitPairs(prevPairs => {
@@ -65,6 +66,7 @@ const TitleBuilding: React.FC<TitleBuildingProps> = () => {
             return newPairs;
         });
         setBubbleText(isClickbait ? 'Correct! This is clickbait! ' + info : 'Incorrect! This is not clickbait! ' + info);
+        setBubbleColor(isClickbait ? 'correct' : 'incorrect');
     }
 
     const getClass = (pair: ClickbaitPair, isClickbait: boolean) => {
@@ -80,7 +82,7 @@ const TitleBuilding: React.FC<TitleBuildingProps> = () => {
             <div className="titleContainer">
                 <div className="avatarContainer">
                     <Avatar className="avatar"/>
-                    <div className="speech-bubble">
+                    <div className={`speech-bubble ${bubbleColor}`}>
                         <p>{bubbleText}</p>
                     </div>
                 </div>
